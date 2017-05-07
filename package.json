@@ -21,5 +21,8 @@
   "homepage": "https://github.com/svenzaimovic/announcer#readme",
   "dependencies": {
     "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
