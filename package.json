@@ -1,0 +1,22 @@
+{
+  "name": "announcer",
+  "version": "1.0.0",
+  "description": "The web app that lets professors change rooms for lectures and send announcements to students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svenzaimovic/announcer.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Sven Zaimovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svenzaimovic/announcer/issues"
+  },
+  "homepage": "https://github.com/svenzaimovic/announcer#readme"
+}
