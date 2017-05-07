@@ -8,3 +8,5 @@ The web app that lets professors update the schedule and send announcements
 Please run `npm install` before running anything
 
 When everything is installedg run `node server.js` to run the server. The app will be available on [localhost:3000/](localhost:3000/)
+
+NOTE: If you are developing, use `npm run dev` instead. that rund nodemon which automatically refreshes the page when you save a file
