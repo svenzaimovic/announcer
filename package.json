@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/svenzaimovic/announcer/issues"
   },
-  "homepage": "https://github.com/svenzaimovic/announcer#readme"
+  "homepage": "https://github.com/svenzaimovic/announcer#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
