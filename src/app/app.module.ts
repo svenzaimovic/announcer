@@ -4,28 +4,27 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { PostsService } from './posts.service';
+import { UsersService } from './users.service'
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component';
+import { UsersComponent } from './users/users.component';
 
-// Define the routes
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'posts',
+    redirectTo: 'users',
     pathMatch: 'full'
   },
   {
-    path: 'posts',
-    component: PostsComponent
+    path: 'users',
+    component: UsersComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +32,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [PostsService],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
