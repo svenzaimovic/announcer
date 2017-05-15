@@ -19,14 +19,6 @@ export class UsersComponent implements OnInit {
   }
 
   public deleteUserOnClick = (user:any) => { 
-  	console.log('luka je zakon', user);
-  	if (user) {
-  		console.log(user.id);
-  	}
-
-  	else {
-  		console.log("there is no user");
-  	}
 	  this.usersService.deleteUserWithId(user._id).subscribe(users => {
       this.users = users;
     });
