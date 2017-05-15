@@ -12,8 +12,8 @@ export class UsersService {
       .map(res => res.json());
   }
 
-  deleteUserWithId() {
-  	return this.http.delete('/api/users/:id')
+  deleteUserWithId(id) {
+  	return this.http.delete('/api/users/' + id)
   		.map(res => res.json());
   }
 

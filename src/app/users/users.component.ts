@@ -18,7 +18,8 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  public deleteUserOnClick = (user) => { 
+  public deleteUserOnClick = (user:any) => { 
+  	console.log('luka je zakon', user);
   	if (user) {
   		console.log(user.id);
   	}
@@ -26,7 +27,7 @@ export class UsersComponent implements OnInit {
   	else {
   		console.log("there is no user");
   	}
-	  this.usersService.deleteUserWithId().subscribe(users => {
+	  this.usersService.deleteUserWithId(user._id).subscribe(users => {
       this.users = users;
     });
 	}
