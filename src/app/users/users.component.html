@@ -8,7 +8,7 @@
       <h4 class="card-title">{{ user.name }}</h4>
       <p class="card-text">{{user.email}}</p>
       <a href="#" class="card-link">Card link</a>
-      <a ng-click="deleteUserOnClick()" class="card-link">Delete this user</a>
+      <a href (click)="deleteUserOnClick(user)" class="card-link">Delete this user</a>
     </div>
   </div>
 </div>

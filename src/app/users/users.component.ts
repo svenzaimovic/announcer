@@ -18,10 +18,19 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  deleteUserOnClick() {
-  	this.usersService.deleteUserWithId().subscribe(users => {
+  public deleteUserOnClick = (user) => { 
+  	if (user) {
+  		console.log(user.id);
+  	}
+
+  	else {
+  		console.log("there is no user");
+  	}
+	  this.usersService.deleteUserWithId().subscribe(users => {
       this.users = users;
     });
-  }
+	}
+
+
 
 }
