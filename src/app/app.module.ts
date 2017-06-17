@@ -8,6 +8,7 @@ import { UsersService } from './users.service'
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
+import { SignupComponent } from './signup/signup.component';
 
 const ROUTES = [
   {
@@ -18,13 +19,18 @@ const ROUTES = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

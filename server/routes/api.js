@@ -1,16 +1,17 @@
 var express = require('express');
-var app = express();
-var db = require('../../database/db');
+var db = require('../database/db');
 const router = express.Router();
 
-var UserController = require('../../database/user/UserController');
-app.use('/users', UserController);
+var UserController = require('../database/user/UserController');
+var AccountController = require('../database/AccountController');
 
+router.use('/users', UserController);
+router.use('/account', AccountController)
 router.get('/', (req, res) => {
   res.send('api works');
 });
 
-module.exports = app;
+module.exports = router;
 
 // const express = require('express');
 // const router = express.Router();
