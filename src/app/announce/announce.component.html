@@ -1,0 +1,23 @@
+<div class="container">
+	<h1>Send an Announcement</h1>
+	<form #sendAnnouncementForm="ngForm">
+		<div class="form-group">
+			<label for="sender">Title</label>
+			<input type="text" class="form-control" [(ngModel)]="announcement.title" name="title" id="title" required>
+		</div>
+		<div class="form-group">
+			<label for="sender">Your Name</label>
+			<input type="text" class="form-control" [(ngModel)]="announcement.sender" name="sender" id="sender">
+		</div>
+		<div class="form-group">
+			<label for="datetime">The date of the announcement</label>
+			<textarea class="form-control" [(ngModel)]="announcement.datetime" name="datetime" id="datetime"></textarea>
+		</div>
+    <div class="form-group">
+			<label for="content">Content</label>
+			<textarea class="form-control" [(ngModel)]="announcement.content" name="content" id="content"></textarea>
+		</div>
+		<button type="submit" (click)="createAnnouncementOnClick(announcement)" class="btn btn-success">Confirm</button>
+		{{announcement}}
+	</form>
+</div>

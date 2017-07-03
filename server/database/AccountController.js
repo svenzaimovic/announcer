@@ -10,24 +10,9 @@ var User = require('./user/User');
 
 router.post('/register', function (req, res) {
 
-    // TODO provjeriti ima li email
-    // TODO provjeriti ima li name
-    // TODO provjeriti ima li password i je li minimalno 8 duzine
+
     User.findOne({email: req.body.email}).then(function(user) {
-        console.log('starting...');
         if(!user) {
-            console.log('no user...');
-            // User.create({
-            //     name: req.body.name,
-            //     email: req.body.email,
-            //     password: passwordHash.generate(req.body.password),
-            //     token: jwt.sign(user, process.env.JWT_SECRET)    
-            // }, 
-            // function (err, user) {
-            //     console.log('user saved or not?');
-            //     if (err) return res.status(500).send("There was a problem adding the information to the database.");
-            //     res.status(200).send(user);
-            // });
            User.create({
                 name : req.body.name,
                 email : req.body.email,

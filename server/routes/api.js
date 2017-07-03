@@ -4,8 +4,10 @@ const router = express.Router();
 
 var UserController = require('../database/user/UserController');
 var AccountController = require('../database/AccountController');
+var AnnouncementsController = require('../database/announcement/AnnouncementController');
 
-router.use('/users', UserController);
+router.use('/users', UserController)
+router.use('/announcements', AnnouncementsController)
 router.use('/account', AccountController)
 router.get('/', (req, res) => {
   res.send('api works');

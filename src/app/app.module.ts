@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { UsersService } from './users.service'
+import { UsersService } from './users.service';
+import { AnnouncementService } from './announcement.service';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { SignupComponent } from './signup/signup.component';
+import { AnnounceComponent } from './announce/announce.component';
 
 const ROUTES = [
   {
@@ -23,6 +25,10 @@ const ROUTES = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'new-announcement',
+    component: AnnounceComponent
   }
 ];
 
@@ -30,7 +36,8 @@ const ROUTES = [
   declarations: [
     AppComponent,
     UsersComponent,
-    SignupComponent
+    SignupComponent,
+    AnnounceComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [UsersService],
+  providers: [UsersService, AnnouncementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
