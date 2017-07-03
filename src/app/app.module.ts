@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { SignupComponent } from './signup/signup.component';
 import { AnnounceComponent } from './announce/announce.component';
+import { AnnouncementListComponent } from './announcement-list/announcement-list.component';
 
 const ROUTES = [
   {
@@ -29,6 +30,10 @@ const ROUTES = [
   {
     path: 'new-announcement',
     component: AnnounceComponent
+  },
+  {
+    path: 'all-announcements',
+    component: AnnouncementListComponent
   }
 ];
 
@@ -37,7 +42,8 @@ const ROUTES = [
     AppComponent,
     UsersComponent,
     SignupComponent,
-    AnnounceComponent
+    AnnounceComponent,
+    AnnouncementListComponent
   ],
   imports: [
     BrowserModule,

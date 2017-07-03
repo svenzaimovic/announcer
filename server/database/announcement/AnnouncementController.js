@@ -22,49 +22,26 @@ router.post('/', function (req, res) {
 
 // RETURNS ALL THE ANNOUNCEMENTS IN THE DATABASE
 router.get('/', function (req, res) {
-    Announcement.find({}, function (err, users) {
+    Announcement.find({}, function (err, announcement) {
         if (err) return res.status(500).send("There was a problem finding the announcements.");
-        res.status(200).send('');
+        res.status(200).send(announcement);
     });
 });
 
-// router.get('/me', ensureAuthorized, function(req, res) {
-//     User.findOne({_id: req.user_id}, function(err, user) {
-//         if (err) {
-//             return res.status(500).json({
-//                 type: false,
-//                 data: "Error occured: " + err
-//             });
-//         }
-        
-//         if(user){
-//             res.json({
-//                 type: true,
-//                 data: user
-//             });
-//         } else {
-//             return res.status(400).json({
-//                 type: false,
-//                 data: "Cant find user"
-//             });
-//         }
-//     });
-// });
-
-// GETS A SINGLE USER FROM THE DATABASE
+// GETS A SINGLE ANNOUNCEMENT FROM THE DATABASE
 router.get('/:id', function (req, res) {
-    Announcement.findById(req.params.id, function (err, user) {
+    Announcement.findById(req.params.id, function (err, announcement) {
         if (err) return res.status(500).send("There was a problem finding the announcement.");
         if (!user) return res.status(404).send("No announcement found.");
-        res.status(200).send(user);
+        res.status(200).send(announcement);
     });
 });
 
-// DELETES A USER FROM THE DATABASE
+// DELETES AN ANNOUNCEMENT FROM THE DATABASE
 router.delete('/:id', function (req, res) {
-    Announcement.findByIdAndRemove(req.params.id, function (err, user) {
+    Announcement.findByIdAndRemove(req.params.id, function (err, announcement) {
         if (err) return res.status(500).send("There was a problem deleting the announcement.");
-        res.status(200).send("Announcement "+ user.name +" was deleted.");
+        res.status(200).send("Announcement "+ announcement.name +" was deleted.");
     });
 });
 
