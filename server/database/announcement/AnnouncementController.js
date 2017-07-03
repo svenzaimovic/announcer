@@ -7,7 +7,7 @@ var authConfig = require('../auth-config');
 var Announcement = require('./Announcement');
 
 // CREATES A NEW ANNOUNCEMENT
-router.post('/', function (req, res) {
+router.post('/', ensureAuthorized, function (req, res) {
     Announcement.create({
             title : req.body.title,
             sender : req.body.sender,
@@ -38,7 +38,7 @@ router.get('/:id', function (req, res) {
 });
 
 // DELETES AN ANNOUNCEMENT FROM THE DATABASE
-router.delete('/:id', function (req, res) {
+router.delete('/:id', ensureAuthorized, isAdmin, function (req, res) {
     Announcement.findByIdAndRemove(req.params.id, function (err, announcement) {
         if (err) return res.status(500).send("There was a problem deleting the announcement.");
         res.status(200).send("Announcement "+ announcement.name +" was deleted.");
@@ -59,6 +59,27 @@ function ensureAuthorized(req, res, next) {
 
             req.user_id = decoded.id;
             next();
+        })
+        
+    }
+}
+
+function isAdmin(req, res, next) {
+    if(!req.cookies || !req.cookies.sid){
+        return res.send(403);
+    } else {
+        jwt.verify(req.cookies.sid, authConfig.secret, function(err, decoded){
+            if(err){
+                return res.send(403);
+            }
+            else if (decoded.id == "595abdabd9d58b41743c50ec"){
+                req.user_id = decoded.id;
+                next();
+            }
+            else {
+                print(decoded)
+                return res.send(403);
+            }
         })
         
     }

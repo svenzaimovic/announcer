@@ -23,28 +23,6 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  public login(user:any){
-    console.log('Called login');
-    this.usersService.login({
-      email: user.email,
-      password: user.password
-    }).subscribe(user => {
-		  console.log('Succefull login', user);
-    });
-  }
-
-  public me(){
-    this.usersService.getMe().subscribe(user => {
-      console.log('Got me', user);
-    })
-  }
-
-  public logout(){
-    this.usersService.logout().subscribe(nesto => {
-      console.log('Logout', nesto);
-    })
-  }
-
 }
 
 
