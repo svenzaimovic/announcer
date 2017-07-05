@@ -1,14 +1,13 @@
-<p>
-  users works!
-</p>
+<h1 style="margin-top:25px; text-align: center;">All Users</h1>
 
 <div class="container">
   <div class="row" *ngFor="let user of users">
-    <div class="card card-block">
-      <h4 class="card-title">{{ user.name }}</h4>
-      <p class="card-text">{{user.email}}</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href (click)="deleteUserOnClick(user)" class="card-link">Delete this user</a>
+    <div class="user-card-header card-header">
+      <h4 class="card-title card-header-title">{{ user.name }}</h4>
+      <a href="" (click)="deleteUserOnClick(user)" class="remove-button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    </div>
+    <div class="card card-block">      
+      <h5 class="card-subtitle">{{user.email}}</h5>
     </div>
   </div>
 </div>

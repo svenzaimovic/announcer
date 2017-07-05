@@ -1,13 +1,16 @@
+<h1 style="margin-top:25px; text-align: center;">All Announcemetns</h1>
+
 
 <div class="container">
   <div class="row" *ngFor="let announcement of announcements">
-    <div class="card card-block">
-      <h4 class="card-title">{{ announcement.title }}</h4>
+    <div class="card-header">
+      <h4 class="card-title card-header-title">{{ announcement.title }}</h4>
+      <a href="" (click)="deleteAnnouncementOnClick(announcement)" class="remove-button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    </div>
+    <div class="card card-block">      
       <h5 class="card-subtitle">{{ announcement.sender }}</h5>
       <span> {{ announcement.datetime }} </span>
-      <p class="card-text">{{announcement.content}}</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href (click)="deleteAnnouncementOnClick(announcement)" class="card-link">Delete this user</a>
+      <p class="card-text"> {{announcement.content}} </p>
     </div>
   </div>
 </div>

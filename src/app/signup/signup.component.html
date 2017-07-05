@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Sign Up</h1>
+	<h1 style="margin-top:25px; text-align: center;">Add a New User</h1>
 	<form #signupForm="ngForm">
 		<div class="form-group">
 			<label for="name">Name</label>
@@ -13,6 +13,7 @@
 			<label for="password">Password</label>
 			<input type="password" class="form-control" [(ngModel)]="user.password" name="password" id="password">
 		</div>
+		
 		<button type="submit" href="/login" (click)="createUserOnClick(user)" class="btn btn-success">Confirm</button>
 
 		
