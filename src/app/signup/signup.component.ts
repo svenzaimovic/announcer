@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  user = new User('','','')
+  user = new User('','','',false)
 
   public createUserOnClick = (user:any) => { 
 		this.usersService.createUser(user).subscribe(user => {

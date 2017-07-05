@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  user = new User('','','')
+  user = new User('','','',false)
 
   public login(user:any){
     console.log('Called login');

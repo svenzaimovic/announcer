@@ -7,7 +7,7 @@ var authConfig = require('../auth-config');
 var Announcement = require('./Announcement');
 
 // CREATES A NEW ANNOUNCEMENT
-router.post('/', ensureAuthorized, function (req, res) {
+router.post('/', ensureAuthorized, isProfessor, function (req, res) {
     Announcement.create({
             title : req.body.title,
             sender : req.body.sender,
@@ -77,7 +77,28 @@ function isAdmin(req, res, next) {
                 next();
             }
             else {
-                print(decoded)
+                console.log(decoded)
+                return res.send(403);
+            }
+        })
+        
+    }
+}
+
+function isProfessor(req, res, next) {
+    if(!req.cookies || !req.cookies.sid){
+        return res.send(403);
+    } else {
+        jwt.verify(req.cookies.sid, authConfig.secret, function(err, decoded){
+            if(err){
+                return res.send(403);
+            }
+            else if (decoded.id == "595ca97379713c743edd9311"){
+                req.user_id = decoded.id;
+                next();
+            }
+            else {
+                console.log(decoded)
                 return res.send(403);
             }
         })

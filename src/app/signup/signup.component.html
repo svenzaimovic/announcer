@@ -3,7 +3,7 @@
 	<form #signupForm="ngForm">
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" [(ngModel)]="user.name" name="name" id="name" required>
+			<input type="text" class="form-control" [(ngModel)]="user.name" name="first" id="name" required>
 		</div>
 		<div class="form-group">
 			<label for="email">Email</label>
@@ -13,9 +13,12 @@
 			<label for="password">Password</label>
 			<input type="password" class="form-control" [(ngModel)]="user.password" name="password" id="password">
 		</div>
-		
+		<div class="checkbox">
+			<label>
+				<input  [checked]="user.isProfessor" type="checkbox"> Professor
+			</label>
+		</div>
 		<button type="submit" href="/login" (click)="createUserOnClick(user)" class="btn btn-success">Confirm</button>
 
-		
 	</form>
 </div>
